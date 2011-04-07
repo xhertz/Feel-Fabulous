@@ -1,0 +1,49 @@
+<%= form_for(@party_package) do |f| %>
+  <% if @party_package.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@party_package.errors.count, "error") %> prohibited this party_package from being saved:</h2>
+
+      <ul>
+      <% @party_package.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+<div class="field">
+    <%= f.label :suitedfor %><br />
+    <%= f.text_field :suitedfor %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+<div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+<div class="field">
+    <%= f.label :groupprate %><br />
+    <%= f.text_field :grouprate%>
+  </div>
+  <div class="field">
+    <%= f.label :groupsize %><br />
+    <%= f.text_field :groupsize %>
+  </div>
+  <div class="field">
+    <%= f.label :addendum %><br />
+    <%= f.text_area :addendum%>
+  </div>
+<div class="field">
+    <%= f.label :details %><br />
+    <%= f.text_area :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

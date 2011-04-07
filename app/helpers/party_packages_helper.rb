@@ -1,0 +1,2 @@
+module PartyPackagesHelper
+end

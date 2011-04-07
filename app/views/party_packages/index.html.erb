@@ -1,0 +1,653 @@
+
+
+<div class="container_16">
+
+	<div class="grid_16" id="header">
+		<div id="logo" class="grid_6 alpha">
+        	<a href="/" title="Feel Fabulous Mobile Spa Homepage"><img src="/images/blank.gif" width="100%" height="100%" /></a>
+        </div>
+        <div class="grid_4" id="header_spacer">&nbsp;</div>
+        <div class="grid_6 omega" id="three_girls"></div>
+	
+	    <div class="grid_16 alpha omega" id="menubar">
+    	
+			<div id="menu_left"></div>
+			<div id="menu_centre">
+				<ul id="menu">
+					<li><a href="/" title="Feel Fabulous Mobile Spa Homepage" class="topmenu">Home</a></li>
+					<li><a href="/meet-our-team.php" title="About Feel Fabulous Mobile Spa" class="topmenu">About</a>
+                    	                    </li>
+					<li><a href="/spa-menu.php" title="Mobile Spa Treatments" class="topmenu">Spa Menu</a></li>
+					<li><a href="/party-packages.php" title="Mobile Spa Party Packages" class="topmenu">Party Packages</a></li>
+					<li><a href="/beauty-kits.php" title="Homemade Beauty Care Activities" class="topmenu">Beauty Kits</a></li>
+					<li><a href="/goody-bags.php" title="Goody Bags For Girls" class="topmenu">Goody Bags</a></li>
+					<li><a href="/add-ons.php" title="Add Ons to Your Mobile Spa Party Package" class="topmenu">Add ons</a></li>
+					<li><a href="/faq.php" title="Frequently Asked Questions" class="topmenu">FAQ</a></li>
+					<li><a href="/contact.php" title="Contact Feel Fabulous" class="topmenu">Contact</a></li>
+				</ul>
+			</div>
+			<div id="menu_right"></div>
+        
+		</div>
+    
+	</div>
+
+	<div class="grid_16" id="content">
+
+<div class="grid_11 alpha" id="maincontent">
+	<h2>Spa Party Packages</h2>
+	<div class="grid_8 alpha">
+	<p>Feel Fabulous Mobile Spa can treat the birthday girl and all her best friends to mini spa, makeup and hair services. Choose one of our party packages or let us create a custom package suited to your party’s unique needs.  </p>
+	
+	<p>For detailed descriptions of each service, you may view our <a href="/spa-menu.php" title="Mobile Spa Menu">spa menu here</a>. Below is a PDF, which is great for comparing packages/pricing!</p>
+	
+	</div>
+	<div id="pricing_sheet_link" class="grid_11 alpha omega" style="margin-top:-30px;">
+		<a href="/pdfs/pricing_sheet.pdf" title="Party Packagesand Pricing Sheet" target="_blank"><img src="/images/blank.gif" width="100%" height="100%" /></a>
+	</div>
+        
+
+
+<% @party_packages.each do |party_package| %>
+
+  <!--<div class="grid_11 alpha omega mainbody_shadow"></div>-->
+
+	<div class="grid_11 alpha omega lined column">
+		
+	  <h4><%= party_package.name %> 
+	    [<%= link_to 'New', new_party_package_path %>|
+		<%= link_to 'Edit', edit_party_package_path(party_package) %>|
+		<%= link_to 'Remove', party_package, :confirm => 'Are you sure?', :method => :delete %>]
+	  </h4> 
+		<div class="grid_8 alpha">
+			<h6>(<%= party_package.suitedfor %>)</h6>
+			
+		  <p><%= party_package.description %></p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price"><%= party_package.price %></div>
+					for each<br />girl
+				</div>
+
+		    <div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price"><%= party_package.grouprate %></div>
+					<%= party_package.groupsize %>
+				</div>
+				<div class="grid_8 alpha omega">
+						<%= raw party_package.details %>
+					
+					<p class="addendum"><%= party_package.addendum %></p>
+				</div>
+			</div>
+        </div>
+	</div>
+
+<% end %>
+
+
+
+
+
+
+  <!--<div class="grid_11 alpha omega mainbody_shadow"></div>-->
+        
+	<div class="grid_11 alpha omega lined column">
+	  <h4>Princess Party Package</h4>
+		<div class="grid_8 alpha">
+			<h6>(best suited for ages 5-7)</h6>
+		  <p>We supply the tiaras, the feather boas and then lead and direct the girls as they decorate their very own take-home star wand with sparkles and jewels! No princess party would be complete without princess pampering, so we treat each little princess to a light makeup application and a mini-manicure with nail art.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$27</div>
+					for each<br />girl
+				</div>
+                
+		    <div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$250</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12;– 3 hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+						<li>1 Party Coordinator</li>
+					</ul>
+					<p class="addendum">*tip: Tell each girl to come in her favourite princess dress!</p>
+				</div>
+			</div>
+        </div>
+	</div>
+    
+	
+	<div class="grid_11 alpha omega lined column">
+	  <h4>The Royal Treatment</h4>
+		<div class="grid_8 alpha">
+			<h6>(best suited for ages 8+)</h6>
+			<p>Let the girls experience the ultimate in luxury! Each girl is treated to a mini-manicure <u>and</u> mini-pedicure with nail art, a mini do-it-yourself facial, a fabulous hair updo, and a light and pretty makeup application.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$50</div>
+					for each<br />girl
+				</div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$475</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12;– 3 hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+                    	<li>2 or 3 Party Coordinators, 3 guaranteed for groups of 10 or more</li>
+					</ul>
+					<p class="addendum">*tip: Have cucumbers on hand for an eye treatment for the girls!</p>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+    
+	<div class="grid_11 alpha omega lined column">
+	  <h4>VIP Star Treatment</h4>
+		<div class="grid_8 alpha">
+			<h6>spa party package #1 (best suited for ages 8+)</h6>
+			<p>Each girl is treated to a mini-manicure <u>and</u> mini-pedicure with nail art, as well as a mini do-it-yourself facial.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$35</div>
+					for each<br />girl
+				</div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$330</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12;– 3 hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+                    	<li>1 or 2 Party Coordinators, 2 guaranteed for groups of 10 or more</li>
+					</ul>
+					<p class="addendum">*tip: Have cucumbers on hand for an eye treatment for the girls!</p>
+				</div>
+			</div>
+		</div>
+  </div>
+
+	<div class="grid_11 alpha omega lined column">
+		<h4>Pamper Me Pretty</h4>
+		<div class="grid_8 alpha">
+			<h6>spa party package #2 (suited for all ages)</h6>
+			<p>Each girl is treated to a mini-manicure <u>or</u> pedicure with nail art, a fabulous hair updo and a light makeup application.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$35</div>
+					for each<br />girl
+				</div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$330</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12;-3 hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+                    	<li>1 or 2 Party Coordinators, 2 guaranteed for groups of 10 or more</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="grid_11 alpha omega lined column">
+		<h4>Polished to Perfection</h4>
+		<div class="grid_8 alpha">
+			<h6>spa party package #3 (suited for all ages)</h6>
+			<p>Each girl is treated to a mini-manicure <u>and</u> mini-pedicure with nail art, as well as a light makeup application.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$30</div>
+					for each<br />girl
+				</div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$280</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2-2&frac12; hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+                    	<li>1 or 2 Party Coordinators, 2 guaranteed for groups of 10 or more</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid_11 alpha omega lined column">
+		<h4>Absolutely Adorable</h4>
+		<div class="grid_8 alpha">
+		  <h6>spa party package #4 (suited for ages 8+)</h6>
+			<p>Each girl is treated to a mini-manicure <u>or</u> mini-pedicure with nail art and a mini do-it-yourself facial.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$30</div>
+					for each<br />girl
+			  </div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$280</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12; hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+						<li>1 or 2 Party Coordinators, 2 guaranteed for groups of 10 or more</li>
+					</ul>
+					<p class="addendum">*tip: Have cucumbers on hand for an eye treatment for the girls!</p>
+				</div>
+		  </div>
+	  </div>
+  </div>
+
+	<div class="grid_11 alpha omega lined column">
+		<h4>Get Gorgeous</h4>
+		<div class="grid_8 alpha">
+			<h6>spa party package #5 (suited for all ages)</h6>
+			<p>Each girl is treated to a mini-manicure <u>or</u> mini-pedicure with nail art and a light makeup application.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$20</div>
+					for each<br />girl
+			  </div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$180</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12; hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+						<li>1 Party Coordinator</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid_11 alpha omega lined column">
+		<h4>Lights, Camera, Action!</h4>
+		<div class="grid_8 alpha">
+		  <h6>spa party package #6 (suited for all ages)</h6>
+			<p>Each girl is treated to a mini-manicure with nail art, a fabulous hair updo and a light makeup application. Afterwards, each girl gets her very own photoshoot! Pictures will be given to the girls.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$50</div>
+					for each<br />girl
+			  </div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$475</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12; hours in length + set up/clean-up<br /><small>(based on 10 girls, time may vary with size of party)</small></li>
+						<li>1 or 2 Party Coordinators, 2 guaranteed for groups of 10 or more</li>
+					</ul>
+                    <p class="addendum">tip: Tell the girls to come to the party in their favourite clothes!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--
+	<div class="grid_11 alpha omega lined column">
+		<h4>Red Carpet Runway</h4>
+		<div class="grid_8 alpha">
+		  <h6>spa party package #7</h6>
+			<p>Each girl is treated to a mini-manicure with nail art, a fabulous hair updo and a light makeup application. Afterwards, the girls will do a fashion show on our red carpet, with a final pose along our superstar media wall!</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$45</div>
+					for each<br />girl
+				</div>
+                
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$430</div>
+					for a group<br />of 10 girls
+				</div>
+				<div class="grid_8 alpha omega">
+					<ul>
+						<li>Party length approx. 2&frac12; hours in length + set up/clean-up</li>
+						<li>One or two Party Coordinators, two guaranteed for groups of 10 or more</li>
+					</ul>
+                    <p class="addendum">tip: Tell the girls to come to the party in their favourite clothes!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<div class="grid_11 alpha omega lined column">
+	  <h4>Teen Makeup Party</h4>
+		<div class="grid_8 alpha">
+			<h6>(suited for ages 13+)</h6>
+		  <p>We teach the girls the fundamentals of makeup while reinforcing that less is always more. Every girl will learn what colors would suit them best, tips and tricks for selecting quality makeup products (including ingredients to avoid), how to properly apply their makeup (including key makeup brushes and their uses) and subtle techniques for enhancing and minimizing certain facial characteristics. Each girl will receive a complete makeup application. Should the girls wish to order professional-quality, yet very economical makeup and brushes, they are able to do so through Feel Fabulous Mobile Spa.</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$30</div>
+					for each<br />girl
+				</div>
+				<div class="grid_8 alpha omega">
+                   <p class="addendum"></p>
+				</div>
+			</div>
+        </div>
+	</div>
+
+	<div class="grid_11 alpha omega lined column">
+	  <h4>Teen Brow Party</h4>
+		<div class="grid_8 alpha">
+			<h6>(suited for ages 13+)</h6>
+		  <p>We teach the girls how to create and maintain the perfect set of brows based upon each girl's facial characteristics. We then shape the girls' brows with gentle wax and tweezing techniques, followed by a soothing brow massage!</p>
+			<div class="grid_8 alpha omega">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$18</div>
+					for each<br />girl
+				</div>
+				<div class="grid_1 price_or">OR</div>
+				<div class="grid_3 addon_price_box">
+					<div class="price">$15</div>
+					each if added on<br />to another package
+				</div>
+				<div class="grid_8 alpha omega">
+                   <p class="addendum"></p>
+				</div>
+			</div>
+        </div>
+	</div>
+	
+	<div class="grid_11 alpha omega lined column">
+		<h4>Ice Cream Pedi Party</h4>
+		<h6>(suited for all ages)</h6>
+		<p><img src="/images/bakedgoods.png" title="Mobile Spa Ice Cream Pedi Party" /></p>
+		<div class="grid_8 alpha">
+			<h6>The girls can choose their very own ice cream treatment that comes in 4 fabulous dessert recipes!</h6>
+			<p>
+			<ul>
+				<li>Strawberry Shortcake</li>
+				<li>Birthday Cake</li>
+				<li>Hot Fudge Sundae</li>
+				<li>Neapolitan Ice cream</li>
+			</ul>
+			</p>
+			<p>The Ice Cream Pedicure begins with a scrumptious foot soak in Bath Ice Cream. After soaking, it’s time to cleanse and exfoliate with Shower Sherbet, leaving their skin silky smooth! Of course, no dessert would be complete without creamy toppings, so next we will treat their feet to a creamy Marshmallow, Chocolate or Caramel foot mask to hydrate and nourish the skin. Yummy body icing is massaged into their hands and feet to moisturize, followed by an application of polish with their choice of any nail art.</p>
+			<div class="grid_8 alpha omega column">
+				<div class="grid_3 alpha addon_price_box">
+					<div class="price">$35</div>
+					per girl<br />30 mins each
+				</div>
+			</div>
+			
+			<div class="grid_8 alpha omega column">
+				<img src="/images/divider.jpg" />
+			</div>
+			
+			<div class="grid_8 alpha omega column">
+				<h2>+ Add-ons</h2>
+				
+				<div class="grid_7 alpha omega column">
+					<h4>Add Hand or Foot Soak</h4>
+					<div class="grid_7 alpha omega column">
+						<h6>Mobile</h6>
+						<div class="grid_2 alpha addon_price_box">
+							<div class="price">$3</div>
+							per girl<br />hands
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$3</div>
+							per girl<br />feet
+						</div>
+						<div class="grid_3 omega addon_price_box" style="width:120px;">
+							<div class="price">$5</div>
+							per girl<br />hands + feet
+						</div>
+					</div>
+					<div class="grid_7 alpha omega column">
+						<h6>In-Spa (Jetted Foot Tubs)</h6>
+						<div class="grid_2 alpha addon_price_box">
+							<div class="price">$3</div>
+							per girl<br />hands
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$5</div>
+							per girl<br />feet
+						</div>
+						<div class="grid_3 omega addon_price_box" style="width:120px;">
+							<div class="price">$7</div>
+							per girl<br />hands + feet
+						</div>
+					</div>
+				</div>
+					
+				<div class="grid_7 alpha omega column">
+					<h4>Magic Jelly Water Hand &amp; Foot Soaks</h4>
+					<p>For a fun and exciting experience, have the girls soak their hands and feet in Magic Jelly Water! We put a top-secret ingredient into the water, causing the water to hold its heat 4 times longer and become jelly in consistency (completely safe, not to worry!). At the end of their soaking, we pour in another magic ingredient that turns the jelly back into water. The girls will be amazed!</p>
+					<div class="grid_7 alpha omega column">
+						<h6>Mobile</h6>
+						<div class="grid_2 alpha addon_price_box">
+							<div class="price">$5</div>
+							per girl<br />hands
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$7</div>
+							per girl<br />feet
+						</div>
+						<div class="grid_3 omega addon_price_box" style="width:120px;">
+							<div class="price">$10</div>
+							per girl<br />hands + feet
+						</div>
+					</div>
+					<div class="grid_7 alpha omega column">
+						<h6>In-Spa</h6>
+						<div class="grid_2 alpha addon_price_box">
+							<div class="price">$5</div>
+							per girl<br />hands
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$10</div>
+							per girl<br />feet
+						</div>
+						<div class="grid_3 omega addon_price_box" style="width:120px;">
+							<div class="price">$13</div>
+							per girl<br />hands + feet
+						</div>
+					</div>
+					
+				</div>
+				
+				
+				<div class="grid_7 alpha omega column">
+					<h4>Callus and Cuticle Care</h4>
+					<h6>(with Take-Home Foot File)</h6>
+					<p>Includes foot soaking. The girls also get to keep their very own foot file! Lotion is applied after treatment.</p>
+					<div class="grid_2 alpha column">
+						<h6>Mobile</h6>
+						<div class="grid_2 alpha omega addon_price_box">
+							<div class="price">$10</div>
+							per girl<br />feet
+						</div>
+					</div>
+					<div class="grid_2 column">
+						<h6>In-Spa</h6>
+						<div class="grid_2 alpha omega addon_price_box">
+							<div class="price">$12</div>
+							per girl<br />feet
+						</div>
+					</div>
+
+				</div>
+				
+				
+				
+				
+				<div class="grid_7 alpha omega column">
+					<h4>Hand and Foot Sugar Scrub</h4>
+					<p>A sweet-scented sugar scrub is used to exfoliate their feet/legs and hands/arms, followed by a hot towel application to remove the sugar granules. Lotion is applied after treatment.</p>
+					<div class="grid_7 alpha omega column">
+						<div class="grid_2 alpha addon_price_box">
+							<div class="price">$4</div>
+							per girl<br />hands
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$4</div>
+							per girl<br />feet
+						</div>
+						<div class="grid_2 addon_price_box">
+							<div class="price">$7</div>
+							per girl<br />both
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="grid_7 alpha omega column">
+					<h4>Chocolate Hand and Foot Mask</h4>
+					<p>We apply mask, made purely out of moor mud and cocoa powder to the girls' hands/arms and feet/legs. This chocolate mask not only smells like yummy chocolate cake, it is also extremely rich in vitamins, minerals, trace element and nutrients! Lotion is applied after treatment.</p>
+					<div class="grid_2 alpha addon_price_box column">
+						<div class="price">$4</div>
+						per girl<br />hands
+					</div>
+					<div class="grid_2 addon_price_box">
+						<div class="price">$4</div>
+						per girl<br />feet
+					</div>
+					<div class="grid_2 addon_price_box">
+						<div class="price">$7</div>
+						per girl<br />both
+					</div>
+				</div>
+				
+				
+				<div class="grid_7 alpha omega column">
+					<h4>Hand/Arm and Foot/Leg Massage</h4>
+					<div class="grid_2 alpha addon_price_box">
+						<div class="price">$4</div>
+						per girl<br />hands
+					</div>
+					<div class="grid_2 addon_price_box">
+						<div class="price">$4</div>
+						per girl<br />feet
+					</div>
+					<div class="grid_2 addon_price_box">
+						<div class="price">$7</div>
+						per girl<br />both
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="grid_11 alpha omega column">
+		<p><strong>We suggest adding a <a href="/beauty-kits.php" title="Mobile Spa Beauty Kits">Beauty Kit Activity</a> to your spa party package!</strong></p>
+	</div>
+</div>
+
+<div class="grid_5 omega" id="sidebar">
+	<div class="grid_5 alpha omega sidebar_box">
+    	<h4>PRINT OUT YOUR INVITATIONS</h4>
+        <img src="/images/invitation_icon.jpg" class="alignleft" /><p>Create customized spa party invitations for free!</p>
+		<p>[<a href="/invitations.php" target="_blank">click here for more</a>]</p>
+		<!--<p><strong>Coming soon!</strong></p>-->
+    </div> 
+    
+    
+    <div class="grid_5 alpha omega sidebar_box" style="margin-bottom:20px; display:none;">
+    	<h4>IN-SPA &amp; MOBILE SPA <br />
+   		SERVICES FOR MOMS</h4>
+        <p><a href="http://www.LuxeMobileSpa.com" title="Mobile Spa and Adult Spa Services in Vancouver Yaletown" target="_blank"><img src="/images/luxe_logo.png" class="alignright" style="margin-right:7px; position:relative; top:-5px;" /></a>Moms deserve pampering too!<br />
+        Visit <a href="http://www.LuxeBeautyLounge.com" title="Mobile Spa and Adult Spa Services in Vancouver Yaletown" target="_blank">LuxeBeautyLounge.com</a>.</p>
+    </div>
+	
+	<div class="grid_5 alpha omega sidebar_box" id="booknow">
+    	<p id="intro">TO BOOK YOUR<br />SPA PARTY</p>
+    	<p id="phonenumber">604.568.6800</p>
+        <p id="emailaddress"><script type="text/javascript">YjrvaqpuJLAbtNy();</script></p>
+    </div>
+    
+	    <div class="grid_5 alpha omega sidebar_box" id="sidebar_gallery">
+    	<h4>IN OUR GALLERY</h4>
+        <a href="/gallery/MYG_3763.jpg" rel="shadowbox[sidebar]" title="Spa Goodies"><img src="/timthumb.php?src=/gallery/MYG_3763.jpg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a><a href="/gallery/cravespread.jpg" rel="shadowbox[sidebar]" title="CRAVE Vancouver Magazine Spread"><img src="/timthumb.php?src=/gallery/cravespread.jpg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>		<div class="hidden">
+			<a href="/gallery/IMG_1317.jpeg" rel="shadowbox[sidebar]" title="Girls having fun"><img src="/timthumb.php?src=/gallery/IMG_1317.jpeg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>			<a href="/gallery/IMG_1364.jpeg" rel="shadowbox[sidebar]" title="Girls having fun"><img src="/timthumb.php?src=/gallery/IMG_1364.jpeg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>			<a href="/gallery/MYG_2350.jpg" rel="shadowbox[sidebar]" title="Girls having fun"><img src="/timthumb.php?src=/gallery/MYG_2350.jpg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>			<a href="/gallery/MYG_2366.jpg" rel="shadowbox[sidebar]" title="Girls having fun"><img src="/timthumb.php?src=/gallery/MYG_2366.jpg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>			<a href="/gallery/MYG_2403-cut.jpg" rel="shadowbox[sidebar]" title="Owner Catherine with a young guest"><img src="/timthumb.php?src=/gallery/MYG_2403-cut.jpg&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>			<a href="/gallery/cravecover.gif" rel="shadowbox[sidebar]" title="Crave Vancouver"><img src="/timthumb.php?src=/gallery/cravecover.gif&w=270&h=140&zc=1&q=90" class="gallery_thumbnail" /></a>		</div>
+		<p>[<a href="/gallery.php" title="Photo Gallery">click here to view more</a>]
+    </div> 
+    	
+    <div class="grid_5 alpha omega sidebar_box" id="sidebar_gallery">
+    	<h4>SPA PARTY IDEAS</h4>
+        <img src="/images/cupcake.png" class="alignright" />
+        <p>Fun games and activities to keep the girls entertained while some girls are receiving their services.</p>
+		<p>[<a href="spa-party-ideas.php" title="Mobile Spa Party Ideas">read more</a>]</p>
+    </div> 
+</div>		<div class="grid_16 alpha omega shadow"></div>
+	</div>
+    
+    <div id="footer" class="grid_16">
+    	<div class="grid_12 alpha" id="footer_left">
+			
+			<p><a href="/" title="Feel Fabulous Mobile Spa Homepage">Home</a> / 
+				<a href="/about.php" title="About Feel Fabulous Mobile Spa">About</a> / 
+				<a href="/spa-menu.php" title="Our Mobile Spa Menu">Spa Menu</a> / 
+				<a href="/party-packages.php" title="Mobile Spa Party Packages">Party Packages</a> / 
+				<a href="/beauty-kits.php" title="Beauty Kits to Take Home">Beauty Kits</a> / 
+				<a href="/goody-bags.php" title="Goody Bags To Give Out">Goody Bags</a> / 
+				<a href="/add-ons.php" title="Add Ons to Your Mobile Spa Party">Add ons</a> / 
+				<a href="/faq.php" title="FAQ">FAQ</a> / 
+				<a href="/contact.php" title="Contact Feel Fabulous">Contact</a></p>
+			<p>&copy; 2010 Feel Fabulous Mobile Spa, All Rights Reserved.<br />The content, artwork, photography and other graphics may not be duplicated or used without written permission.</p>
+            <p>604.568.6800&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<script type="text/javascript">YjrvaqpuJLAbtNy();</script></p>
+        </div>
+        <div class="grid_4 omega" id="footer_right">
+        	<div class="grid_4 alpha omega">
+            	<div class="grid_1 alpha">&nbsp;</div>
+                <div class="grid_3 omega" id="logo_footer"></div>
+            </div>
+            <div class="grid_4 alpha omega" id="credits_sonika"><p>Branding &amp; Design by <a href="http://www.sonikastudios.com" title="Vancouver Web Design, Branding, Graphic Design" target="_blank">Sonika Studios Inc.</a></p></div>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1422398-23']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+
+
+
+

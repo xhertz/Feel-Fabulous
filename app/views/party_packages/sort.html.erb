@@ -1,0 +1,28 @@
+
+
+<ul class="sortable">
+  <% @party_packages.each do |party_package| %>
+	  <li id="party_packages_<%= party_package.id %>"><%= party_package.name %></li>
+  <%end%>
+</ul>
+
+
+
+
+
+<script>
+
+$(function() {
+	$( ".sortable" ).sortable({
+
+		cursor: 'crosshair',
+		update: function(){
+			$.ajax({
+				type: 'post',
+				data: $('.sortable').sortable('serialize'),
+				url: '/sort_party_packages'});
+			}
+		});
+		$( ".sortable" ).disableSelection();
+	});
+</script>

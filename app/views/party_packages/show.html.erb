@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @party_package.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @party_package.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_party_package_path(@party_package) %> |
+<%= link_to 'Back', party_packages_path %>
