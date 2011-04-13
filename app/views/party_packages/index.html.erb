@@ -6,7 +6,13 @@
 		<div id="logo" class="grid_6 alpha">
         	<a href="/" title="Feel Fabulous Mobile Spa Homepage"><img src="/images/blank.gif" width="100%" height="100%" /></a>
         </div>
-        <div class="grid_4" id="header_spacer">&nbsp;</div>
+        <div class="grid_4" id="header_spacer">
+	<% if user_signed_in? %>
+		Welcome <%= current_user.email %>. Not you? <%= link_to 'Sign out', destroy_user_session_path %>
+	<% else %>
+		<%= link_to 'Sign In', new_user_session_path%> | <%= link_to 'Sign Up', new_user_registration_path %>
+	<%end%>
+</div>
         <div class="grid_6 omega" id="three_girls"></div>
 	
 	    <div class="grid_16 alpha omega" id="menubar">
@@ -35,7 +41,11 @@
 	<div class="grid_16" id="content">
 
 <div class="grid_11 alpha" id="maincontent">
-	<h2>Spa Party Packages</h2>
+	<h2>Spa Party Packages 
+	  <% if user_signed_in? %>
+		[<%= link_to '+', new_party_package_path %> | <%= link_to 'Sort', party_packages_path(:sort => '1') %>]
+	  <% end %>
+	</h2> 
 	<div class="grid_8 alpha">
 	<p>Feel Fabulous Mobile Spa can treat the birthday girl and all her best friends to mini spa, makeup and hair services. Choose one of our party packages or let us create a custom package suited to your party’s unique needs.  </p>
 	
@@ -54,10 +64,9 @@
 
 	<div class="grid_11 alpha omega lined column">
 		
-	  <h4><%= party_package.name %> 
-	    [<%= link_to 'New', new_party_package_path %>|
-		<%= link_to 'Edit', edit_party_package_path(party_package) %>|
-		<%= link_to 'Remove', party_package, :confirm => 'Are you sure?', :method => :delete %>]
+	  <h4><% if user_signed_in? %> <%= link_to '[X]', party_package, :confirm => 'Are you sure?', :method => :delete %> <% end %> 
+		<%= party_package.name %> 
+	    <% if user_signed_in? %> <%= link_to '[E]', edit_party_package_path(party_package) %> <% end %>
 	  </h4> 
 		<div class="grid_8 alpha">
 			<h6>(<%= party_package.suitedfor %>)</h6>

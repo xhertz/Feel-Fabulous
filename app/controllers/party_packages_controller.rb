@@ -81,7 +81,7 @@ class PartyPackagesController < ApplicationController
   end
   
   def sort
-    params[:party_packages].each_with_index do |party_package_id,index|
+    params[:party_package].each_with_index do |party_package_id,index|
        PartyPackage.find(party_package_id).update_attribute(:position,index)
     end
     render :nothing => true
